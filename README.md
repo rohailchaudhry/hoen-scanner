@@ -1,52 +1,33 @@
-# Hoen Scanner microservice
+# Flightscry — Android flight itinerary
 
-Implementation for the Skyscanner Forage backend task, built on
-https://github.com/vagabond-systems/hoen-scanner.
+Skyscanner Forage Task 3 proof of concept. Kotlin, XML views, minimum Android
+API 33, and Backpack Android 43.0.0, as specified in the task PDF.
 
-## Install these changes
+The screen shows three Backpack cards: flight information (SK 204), departure
+(LHR, 09:30), and arrival (EDI, 10:55). All information is fictional demonstration
+data. Backpack text components and large card corners are used with BpkTheme.
 
-Fork the starter repository. Copy the supplied `src` folder into the root of your
-fork, replacing `HoenScannerApplication.java` and adding the other three classes.
-Keep the starter's `pom.xml`, `config.yml`, `HoenScannerConfiguration.java`, and
-the original `src/main/resources/hotels.json` and `rental_cars.json` files.
-This update archive is not a standalone Maven project.
+## Open and run
 
-## Build and run
+Use Android Studio, JDK 17, Android SDK 34, and Gradle 8.2. This source archive
+has no Gradle wrapper binary. The easiest setup is to create an Empty Views
+Activity project in Android Studio named Flightscry, using Kotlin and minimum
+SDK 33. Copy this archive's contents over that project while keeping its wrapper
+scripts and wrapper JAR, then set gradle/wrapper/gradle-wrapper.properties to
+use https://services.gradle.org/distributions/gradle-8.2-bin.zip.
+Sync Gradle and run on an API 33 or newer emulator.
 
-Use OpenJDK 19 as specified by the task and Maven. From the repository root:
+Alternatively, with Gradle 8.2 installed, run `gradle wrapper --gradle-version 8.2`
+from this folder, then `./gradlew assembleDebug` (Windows: `gradlew.bat assembleDebug`).
 
-```bash
-mvn clean package
-java -jar target/hoen-scanner-1.0-SNAPSHOT.jar server config.yml
-```
+## Checks
 
-The application loads both JSON resource files before registering `POST /search`.
-It returns matching hotels and rental cars as a JSON array containing city, kind,
-and title. Matching ignores letter case and surrounding spaces. An unknown city
-returns an empty array. A missing, null, or blank city returns HTTP 400.
+XML files were checked for well-formedness. Android compilation and emulator
+rendering have not been verified in the preparation environment. Verify that all
+three cards appear, scroll on a small screen, and show the correct flight number,
+airport codes, and times. No backend or network permissions are needed.
 
-## Check the API
+## GitHub
 
-Leave the server running. In Postman select POST, use
-`http://localhost:8080/search`, select Body -> raw -> JSON, and send:
-
-```json
-{"city":"petalborough"}
-```
-
-Repeat for `rustburg` and `shaleport`. Verify the returned city values and compare
-the titles and kinds with both original resource files. Check `unknown-city`
-returns `[]` and `{}` returns HTTP 400. Uppercase `PETALBOROUGH` should return the
-same matches as lowercase.
-
-Equivalent terminal request:
-
-```bash
-curl -i -X POST http://localhost:8080/search -H 'Content-Type: application/json' -d '{"city":"petalborough"}'
-```
-
-## Verification status
-
-The source was reviewed against the starter's Dropwizard 4 scaffolding. Maven
-compilation and live HTTP checks have not been executed in the preparation
-environment. Run the checks above before claiming a tested submission.
+Upload this entire flightscry folder to your repository, preserving its structure.
+Source library: https://github.com/Skyscanner/backpack-android/tree/43.0.0

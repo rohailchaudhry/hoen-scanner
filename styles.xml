@@ -1,0 +1,9 @@
+<resources>
+    <style name="Theme.Flightscry" parent="BpkTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">#05203C</item>
+        <item name="android:navigationBarColor">#F3F6FA</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

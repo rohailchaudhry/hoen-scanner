@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Flightscry</string>
+    <string name="itinerary">Your flight itinerary</string>
+    <string name="subtitle">Your next adventure, all in one place.</string>
+    <string name="flight_information">Flight information</string>
+    <string name="flight_number">SK 204</string>
+    <string name="flight_details">Skyscanner Airways · Economy</string>
+    <string name="date">Friday, 16 October 2026</string>
+    <string name="departure">Departure</string>
+    <string name="departure_airport">LHR</string>
+    <string name="departure_city">London Heathrow</string>
+    <string name="departure_time">09:30</string>
+    <string name="departure_terminal">Terminal 2 · Gate B12</string>
+    <string name="arrival">Arrival</string>
+    <string name="arrival_airport">EDI</string>
+    <string name="arrival_city">Edinburgh</string>
+    <string name="arrival_time">10:55</string>
+    <string name="duration">Direct flight · 1 hour 25 minutes</string>
+    <string name="demo_notice">Sample itinerary for demonstration. Times are local.</string>
+</resources>
